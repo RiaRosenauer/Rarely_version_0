@@ -1,31 +1,17 @@
 "use client"
 
-import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import Dashboard from "@/components/Dashboard";
-import { colors } from "@/styles/colors";
-import BottomNav from "@/components/BottomNav";
-import PleaseFillDiary from "@/components/PleaseFillDiary";
-import { useMediaQuery } from "@/hooks/use-media-query";
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { BookOpen } from 'lucide-react'
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "@/hooks/use-media-query"
+import Image from 'next/image'
 
-export default function WellnessDashboard() {
-
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
-
-  if (isDesktop) {
-    return (
-      <div className="flex items-center justify-center h-screen bg-gray-100">
-        <div className="text-center p-8 bg-white rounded-lg shadow-md">
-          <h1 className="text-2xl font-bold mb-4">We're sorry</h1>
-          <p className="text-gray-600">This web app is only accessible via mobile phone.</p>
-        </div>
-      </div>
-    );
-  }
+export default function Page() {
 
   const [hasDiaryEntry, setHasDiaryEntry] = useState<boolean>(false);
 
-  // Load the diary entry state from sessionStorage on component mount
   useEffect(() => {
     const diaryEntryStatus = sessionStorage.getItem("hasDiaryEntry");
     if (diaryEntryStatus === "true") {
@@ -39,17 +25,67 @@ export default function WellnessDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-white pb-0">
-      <main className="container mx-auto px-4 py-8 pt-0">
-        {!hasDiaryEntry ? (
-          <PleaseFillDiary onButtonClick={handleDiaryClick}/>
-        ) : (
-          <Dashboard />
-        )}
-      </main>
+    <div className="min-h-screen bg-white">
+      {/* Top Navigation */}
+      <div className="flex justify-between items-center p-4 text-[#473F63]">
+        <div className="flex items-center">
+          <Image 
+            src="/placeholder.svg" 
+            alt="Logo" 
+            width={30}
+            height={30}
+          />
+          <span className="text-sm ml-2">Fe</span>
+        </div>
+      </div>
 
-      <BottomNav />
+      {/* Main Content */}
+      <main className="px-6 pt-8">
+        <div className="space-y-6">
+          {/* App Name */}
+          <div className="text-center space-y-4">
+            {/* Logo */}
+            <div className="flex justify-center items-center py-6">
+              <Image 
+                src="/logo_purple.png" 
+                alt="Logo" 
+                width={140}
+                height={140}
+                priority
+              />
+            </div>
+            <h2 className="text-xl font-medium text-[#473F63]">
+              Welcome to rarely Fe!
+            </h2>
+            <p className="text-[#473F63] opacity-80">
+              You haven&apos;t filled out your diary yet!
+            </p>
+          </div>
+
+          {/* Card */}
+          {!hasDiaryEntry ? (
+            <Card className="bg-[#E6E3FD] border-none shadow-none">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="mx-auto w-8 h-8">
+                  <BookOpen className="w-full h-full text-[#473F63]" />
+                </div>
+                <p className="text-[#473F63]">
+                  To understand your disease better we need to track your habits!
+                </p>
+                <Button 
+                  className="bg-[#473F63] hover:bg-[#473F63]/90 text-white"
+                  onClick={handleDiaryClick}
+                >
+                  Continue
+                </Button>
+              </CardContent>
+            </Card>
+          ) : (
+            <Dashboard />
+          )}
+        </div>
+      </main>
     </div>
-  );
+  )
 }
 

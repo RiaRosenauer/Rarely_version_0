@@ -1,34 +1,28 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
-import Header from "@/components/Header";
-import BottomNav from "@/components/BottomNav";
+import "@/styles/globals.css"
+import { Inter } from 'next/font/google'
+import { BottomNav } from "@/components/bottom-nav"
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const inter = Inter({ subsets: ["latin"] })
+
+export const metadata = {
+  title: "Rarely - Health Tracking App",
+  description: "Track your health habits and understand your disease better",
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50`}>
-        <Header />
-        <main className="pt-4 pb-16">
+      <body className={`${inter.className} bg-white`}>
+        <div className="max-w-md mx-auto min-h-screen pb-20">
           {children}
-        </main>
-        <BottomNav />
+          <BottomNav />
+        </div>
       </body>
     </html>
-  );
+  )
 }
+

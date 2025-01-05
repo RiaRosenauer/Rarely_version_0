@@ -10,5 +10,9 @@ export const colors = {
     secondary: '#F3F4F6',
   },
   border: '#E5E7EB',
+  lightpurple: '#E6E3FD',
+  lightgreen: '#DEEAE5',
+  darkpurple: '#473F63',
+  darkgreen: '#1E4D57',
 }
 
