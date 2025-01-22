@@ -251,7 +251,9 @@ export default function Dashboard() {
         </div>
 
         <div className="text-center mb-6">
-          <h1 className="text-2xl font-semibold text-black">Hello {userData.name}.</h1>
+          <h1 className="text-2xl font-semibold text-black">
+            Hello {sessionStorage.getItem('userName')}.
+          </h1>
         </div>
       </div>
 

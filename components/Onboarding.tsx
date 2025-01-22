@@ -102,6 +102,10 @@ export function Onboarding() {
   }, [messages]);
 
   const handleNext = () => {
+    if (step === 2) {
+      sessionStorage.setItem('userName', currentMessage);
+    }
+    
     // Add the user's answer to messages
     // Store the data based on current step
     if (currentMessage || step === 9 || step === 10) {
