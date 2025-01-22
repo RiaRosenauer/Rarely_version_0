@@ -1,68 +1,68 @@
 # Rarely
 
-Welcome to the Rarely project! This is a Next.js application designed for managing diary entries.
+Rarely is a web platform designed to support individuals with rare conditions, providing a space for community connection, resource sharing, and knowledge exchange.
 
-## Table of Contents
+## Features
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+- **Community Forum**: Connect with others through topic-based discussions
+- **Group Chat**: Real-time communication with community members
+- **Resource Library**: Access curated resources and information
+- **Studies Section**: Stay updated with latest research and clinical trials
+- **OCR Integration**: Extract text from medical documents
+- **Dashboard**: Personalized view of your activities and relevant content
 
-## Installation
+## Tech Stack
 
-To set up the project, you'll need to have [NVM (Node Version Manager)](https://github.com/nvm-sh/nvm) installed. Follow these steps:
+- Next.js 14 (React Framework)
+- TypeScript
+- Tailwind CSS
+- API Routes for backend functionality
 
-1. **Install NVM**:
-   Run the following command to install NVM:
+## Getting Started
 
-   ```bash
-   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-   ```
+### Prerequisites
 
-2. **Load NVM**:
-   Add the following lines to your shell configuration file (e.g., `~/.bashrc`, `~/.zshrc`, or `~/.profile`):
+- Node.js 18+ 
+- npm or yarn
 
-   ```bash
-   export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-   ```
+### Installation
 
-   Then, run:
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/Rarely_version_0.git
+cd Rarely_version_0
+```
 
-   ```bash
-   source ~/.bashrc  # or source ~/.zshrc or source ~/.profile, depending on your shell
-   ```
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
 
-3. **Install Node.js**:
-   Use NVM to install Node.js version 20:
+3. Set up environment variables:
+Create a `.env.local` file in the root directory with necessary environment variables.
 
-   ```bash
-   nvm install 20
-   ```
+4. Run the development server:
+```bash
+npm run dev
+# or
+yarn dev
+```
 
-4. **Install Dependencies**:
-   Navigate to the project directory (/my-app) and install the required npm packages:
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-   ```bash
-   npm install
-   ```
+## Project Structure
 
-## Usage
-
-To start the development server, run:
- ```bash
-   npm run dev
-   ```
-
-
-
-You can then access the application at `http://localhost:3000`.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a pull request or open an issue.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+```
+├── app/                    # Next.js app directory
+│   ├── api/               # API routes
+│   ├── chat/             # Chat feature
+│   ├── forum/            # Forum pages
+│   ├── resources/        # Resource library
+│   └── studies/          # Studies section
+├── components/            # Reusable React components
+├── data/                  # Mock data and data utilities
+├── public/               # Static assets
+└── styles/               # Global styles
+```
